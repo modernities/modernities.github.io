@@ -18,13 +18,25 @@
       margin: 0.5rem 1rem 2rem 1rem;
       max-width: 60ch;
       background: #fff;
-      color: #333;
+      color: #222;
     }
 
     @media (prefers-color-scheme: dark) {
       html {
         background: #000;
-        color: #cbcbcb;
+        color: #dadada;
+      }
+    }
+
+    ::selection {
+      background: #000;
+      color: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      ::selection {
+        background: #fff;
+        color: #000;
       }
     }
 
@@ -47,12 +59,13 @@
     .date a,
     nav a {
       text-decoration: none;
-      opacity: 0.3;
+      color: color-mix(in srgb, currentColor 30%, transparent);
+      transition: color 0.15s;
     }
 
     .date a:hover,
     nav a:hover {
-      opacity: 0.5;
+      color: color-mix(in srgb, currentColor 60%, transparent);
     }
 
     .post:not(:last-of-type) {
@@ -82,6 +95,16 @@
   <nav>
     <div><a href="mailto:hi@modernities.org">@</a></div>
   </nav>
+
+  <article class="post" id="20250528">
+    <div class="date"><a href="#20250528">2025-05-28</a></div>
+    <p>This critique was concerned with architecture and urbanism, and predicted that all that may suggest permanence
+      could be achieved only by simulation, the “real” was doomed to become an ever-changing collage of real and fake.
+      Architecture and urbanism no longer strive for authenticity or stability, but instead participate in an endless
+      play of signs and images. What persists is not the built environment itself, but the simulation of permanence, a
+      convincing fiction sustained by repetition, recognition, and the collective desire for something to hold onto when
+      everything else keeps changing.</p>
+  </article>
 
   <article class="post" id="20250527">
     <div class="date"><a href="#20250527">2025-05-27</a></div>
