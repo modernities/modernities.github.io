@@ -57,27 +57,24 @@
     }
 
     .date a,
-    nav a {
+    footer a {
       text-decoration: none;
       color: color-mix(in srgb, currentColor 30%, transparent);
       transition: color 0.15s;
     }
 
     .date a:hover,
-    nav a:hover {
+    footer a:hover {
       color: color-mix(in srgb, currentColor 60%, transparent);
     }
 
-    .post:not(:last-of-type) {
+    .post {
       padding-bottom: 6rem;
       border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
     }
 
-    nav {
-      font-size: inherit;
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 6rem;
+    footer {
+      margin-top: 1rem;
     }
 
     hr {
@@ -92,9 +89,6 @@
 
 <body>
 
-  <nav>
-    <div><a href="mailto:hi@modernities.org">@</a></div>
-  </nav>
 
   <article class="post" id="20250528">
     <div class="date"><a href="#20250528">2025-05-28</a></div>
@@ -185,6 +179,10 @@
       before they turn into dreams; open our ears before they fill up with water; wash our faces before they get covered
       by moss.</p>
   </article>
+
+  <footer>
+    <div><a href="mailto:hi@modernities.org">hi@modernities.org</a></div>
+  </footer>
 
 </body>
 
