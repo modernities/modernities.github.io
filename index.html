@@ -61,14 +61,14 @@
     }
 
     .date a,
-    footer a {
+    .nav a {
       text-decoration: none;
       color: color-mix(in srgb, currentColor 30%, transparent);
       transition: color 0.15s;
     }
 
     .date a:hover,
-    footer a:hover {
+    .nav a:hover {
       color: color-mix(in srgb, currentColor 60%, transparent);
     }
 
@@ -77,9 +77,11 @@
       border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
     }
 
-    footer {
+    .nav {
       padding-top: 1rem;
-      padding-bottom: 2rem;
+      padding-bottom: 6rem;
+      display: flex;
+      gap: 1rem;
     }
 
     hr {
@@ -93,6 +95,9 @@
 </head>
 
 <body>
+  <div class="nav">
+    <div><a href="mailto:hi@modernities.org">MODERNITIES</a></div>
+  </div>
   <article class="post" id="20250709">
     <div class="date"><a href="#20250709">2025-07-09</a></div>
     <p>Hey me, are you still around? Or is this finally it—game over, lights out, nothing left? Did you go easy, or did
@@ -194,11 +199,6 @@
       before they turn into dreams; open our ears before they fill up with water; wash our faces before they get covered
       by moss.</p>
   </article>
-
-  <footer>
-    <div><a href="mailto:hi@modernities.org">hi@modernities.org</a></div>
-  </footer>
-
 </body>
 
 </html>
