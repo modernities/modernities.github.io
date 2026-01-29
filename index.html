@@ -105,7 +105,6 @@
   <main id="feed"></main>
 
   <script>
-    // newest first
     const posts = [
       "20251004",
       "20250729",
@@ -119,40 +118,37 @@
 
     const feed = document.getElementById("feed");
 
-    function pretty(date) {
-      return `${date.slice(0,4)}-${date.slice(4,6)}-${date.slice(6,8)}`;
-    }
+    const pretty = d =>
+      `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
 
-    async function renderPost(date) {
-      const res = await fetch(`posts/${date}.html`);
-      if (!res.ok) return;
-
-      const html = await res.text();
-      const doc = new DOMParser().parseFromString(html, "text/html");
-
-      const article = document.createElement("article");
-      article.className = "post";
-      article.id = date;
-
-      article.innerHTML = `
-        <div class="date"><a href="#${date}">${pretty(date)}</a></div>
-        ${doc.body.innerHTML}
-      `;
-
-      feed.appendChild(article);
-    }
-
-    (async () => {
-      for (const date of posts) {
-        await renderPost(date);
+    Promise.all(
+      posts.map(d =>
+        fetch(`posts/${d}.html`, { cache: "force-cache" })
+          .then(r => r.text())
+          .then(html => {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            return { date: d, body: doc.body.innerHTML };
+          })
+      )
+    ).then(items => {
+      for (const { date, body } of items) {
+        const article = document.createElement("article");
+        article.className = "post";
+        article.id = date;
+        article.innerHTML = `
+          <div class="date"><a href="#${date}">${pretty(date)}</a></div>
+          ${body}
+        `;
+        feed.appendChild(article);
       }
 
       if (location.hash) {
         const el = document.getElementById(location.hash.slice(1));
         if (el) el.scrollIntoView();
       }
-    })();
+    });
   </script>
+
 
 </body>
 </html>
