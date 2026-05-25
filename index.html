@@ -2,240 +2,255 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>MODERNITIES</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>MODERNITIES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    @font-face {
-      font-family: "Geist";
-      src: url("assets/Geist-Regular.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
+    <style>
+        @font-face {
+            font-family: "Geist";
+            src: url("assets/Geist-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    @font-face {
-      font-family: "Geist";
-      src: url("assets/Geist-SemiBold.woff2") format("woff2");
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
+        @font-face {
+            font-family: "Geist";
+            src: url("assets/Geist-SemiBold.woff2") format("woff2");
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    @font-face {
-      font-family: "Geist Mono";
-      src: url("assets/GeistMono-Regular.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
+        @font-face {
+            font-family: "Geist";
+            src: url("assets/Geist-Italic.woff2") format("woff2");
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
 
-    :root {
-      color-scheme: light dark;
-    }
+        @font-face {
+            font-family: "Geist Mono";
+            src: url("assets/GeistMono-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    html {
-      font-family: "Geist", sans-serif;
-      line-height: 1.6;
-      font-size: 15px;
-      margin: 0 1.5rem;
-      max-width: 60ch;
-      background: #fff;
-      color: #222;
-    }
+        :root {
+            color-scheme: light dark;
+        }
 
-    body {
-      margin: 0;
-    }
+        html {
+            font-family: "Geist", sans-serif;
+            line-height: 1.6;
+            font-size: 15px;
+            margin: 0 1.5rem;
+            max-width: 60ch;
+            background: #fff;
+            color: #222;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      html {
-        background: #000;
-        color: #dadada;
-      }
-    }
+        body {
+            margin: 0;
+        }
 
-    ::selection {
-      background: #00ff11;
-      color: #000;
-    }
+        @media (prefers-color-scheme: dark) {
+            html {
+                background: #000;
+                color: #dadada;
+            }
+        }
 
-    a {
-      color: inherit;
-    }
+        ::selection {
+            background: #00ff11;
+            color: #000;
+        }
 
-    h1,
-    h2,
-    h3 {
-      font-size: inherit;
-    }
+        a {
+            color: inherit;
+        }
 
-    .date {
-      font-family: "Geist Mono", monospace;
-      font-size: 0.9em;
-      padding-top: 1rem;
-    }
+        h1,
+        h2,
+        h3 {
+            font-size: inherit;
+        }
 
-    .date a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.08s;
-    }
+        .date {
+            font-family: "Geist Mono", monospace;
+            font-size: 0.9em;
+            padding-top: 1rem;
+        }
 
-    .date a:hover {
-      color: color-mix(in srgb, currentColor 30%, transparent);
-    }
+        .date a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.08s;
+        }
 
-    .post {
-      padding-bottom: 2rem;
-    }
+        .date a:hover {
+            color: color-mix(in srgb, currentColor 30%, transparent);
+        }
 
-    .nav {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      display: flex;
-      gap: 1rem;
-      font-family: "Geist Mono", monospace;
-    }
+        .post {
+            padding-bottom: 2rem;
+        }
 
-    .nav a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.08s;
-    }
+        blockquote {
+            font-style: italic;
+            margin: 1rem 0 1rem 1rem;
+        }
 
-    .nav a:hover {
-      color: color-mix(in srgb, currentColor 30%, transparent);
-    }
+        .nav {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            font-family: "Geist Mono", monospace;
+        }
 
-    .toc {
-      position: fixed;
-      top: 1rem;
-      right: 1.5rem;
-      font-family: "Geist Mono", monospace;
-      font-size: 0.9em;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      text-align: right;
-    }
+        .nav a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.08s;
+        }
 
-    .toc a {
-      text-decoration: none;
-      color: color-mix(in srgb, currentColor 30%, transparent);
-      transition: color 0.08s;
-    }
+        .nav a:hover {
+            color: color-mix(in srgb, currentColor 30%, transparent);
+        }
 
-    .toc a:hover {
-      color: color-mix(in srgb, currentColor 60%, transparent);
-    }
+        .toc {
+            position: fixed;
+            top: 1rem;
+            right: 1.5rem;
+            font-family: "Geist Mono", monospace;
+            font-size: 0.9em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-align: right;
+        }
 
-    .toc a.active {
-      color: inherit;
-    }
+        .toc a {
+            text-decoration: none;
+            color: color-mix(in srgb, currentColor 30%, transparent);
+            transition: color 0.08s;
+        }
 
-    @media (max-width: 800px) {
-      .toc {
-        display: none;
-      }
-    }
+        .toc a:hover {
+            color: color-mix(in srgb, currentColor 60%, transparent);
+        }
 
-    hr {
-      border: none;
-      border-top: 1px solid color-mix(in srgb, currentColor 50%, transparent);
-      margin: 2rem auto;
-      width: 20%;
-    }
-  </style>
+        .toc a.active {
+            color: inherit;
+        }
+
+        @media (max-width: 800px) {
+            .toc {
+                display: none;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid color-mix(in srgb, currentColor 50%, transparent);
+            margin: 2rem auto;
+            width: 20%;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="nav">
-    <div><a href="mailto:hi@modernities.org">MODERNITIES</a></div>
-  </div>
+    <div class="nav">
+        <div><a href="mailto:hi@modernities.org">MODERNITIES</a></div>
+    </div>
 
-  <main id="feed"></main>
-  <nav class="toc" id="toc" aria-label="Posts"></nav>
+    <main id="feed"></main>
+    <nav class="toc" id="toc" aria-label="Posts"></nav>
 
-  <script>
-    const posts = [
-      "20260509",
-      "20251004",
-      "20250729",
-      "20250709",
-      "20250528",
-      "20250527",
-      "20250526",
-      "20250525",
-      "20250524"
-    ];
+    <script>
+        const posts = [
+            "20260525",
+            "20260509",
+            "20251004",
+            "20250729",
+            "20250709",
+            "20250528",
+            "20250527",
+            "20250526",
+            "20250525",
+            "20250524"
+        ];
 
-    const feed = document.getElementById("feed");
-    const toc = document.getElementById("toc");
+        const feed = document.getElementById("feed");
+        const toc = document.getElementById("toc");
 
-    const pretty = d =>
-      `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
+        const pretty = d =>
+            `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
 
-    for (const d of posts) {
-      const a = document.createElement("a");
-      a.href = `#${d}`;
-      a.textContent = pretty(d);
-      a.dataset.date = d;
-      toc.appendChild(a);
-    }
+        for (const d of posts) {
+            const a = document.createElement("a");
+            a.href = `#${d}`;
+            a.textContent = pretty(d);
+            a.dataset.date = d;
+            toc.appendChild(a);
+        }
 
-    Promise.all(
-      posts.map(d =>
-        fetch(`posts/${d}.html`, { cache: "force-cache" })
-          .then(r => r.text())
-          .then(html => {
-            const doc = new DOMParser().parseFromString(html, "text/html");
-            return { date: d, body: doc.body.innerHTML };
-          })
-      )
-    ).then(items => {
-      for (const { date, body } of items) {
-        const article = document.createElement("article");
-        article.className = "post";
-        article.id = date;
-        article.innerHTML = `
+        Promise.all(
+            posts.map(d =>
+                fetch(`posts/${d}.html`, {cache: "force-cache"})
+                    .then(r => r.text())
+                    .then(html => {
+                        const doc = new DOMParser().parseFromString(html, "text/html");
+                        return {date: d, body: doc.body.innerHTML};
+                    })
+            )
+        ).then(items => {
+            for (const {date, body} of items) {
+                const article = document.createElement("article");
+                article.className = "post";
+                article.id = date;
+                article.innerHTML = `
           <div class="date"><a href="#${date}">${pretty(date)}</a></div>
           ${body}
         `;
-        feed.appendChild(article);
-      }
+                feed.appendChild(article);
+            }
 
-      if (location.hash) {
-        const el = document.getElementById(location.hash.slice(1));
-        if (el) el.scrollIntoView();
-      }
+            if (location.hash) {
+                const el = document.getElementById(location.hash.slice(1));
+                if (el) el.scrollIntoView();
+            }
 
-      const tocLinks = new Map(
-        [...toc.querySelectorAll("a")].map(a => [a.dataset.date, a])
-      );
-      const articles = [...document.querySelectorAll(".post")];
+            const tocLinks = new Map(
+                [...toc.querySelectorAll("a")].map(a => [a.dataset.date, a])
+            );
+            const articles = [...document.querySelectorAll(".post")];
 
-      const setActive = id => {
-        for (const [date, a] of tocLinks)
-          a.classList.toggle("active", date === id);
-      };
+            const setActive = id => {
+                for (const [date, a] of tocLinks)
+                    a.classList.toggle("active", date === id);
+            };
 
-      const updateActive = () => {
-        let active = articles[0]?.id;
-        for (const a of articles) {
-          if (a.getBoundingClientRect().top <= 100) active = a.id;
-          else break;
-        }
-        if (active) setActive(active);
-      };
+            const updateActive = () => {
+                let active = articles[0]?.id;
+                for (const a of articles) {
+                    if (a.getBoundingClientRect().top <= 100) active = a.id;
+                    else break;
+                }
+                if (active) setActive(active);
+            };
 
-      updateActive();
-      window.addEventListener("scroll", updateActive, { passive: true });
-      window.addEventListener("resize", updateActive);
-    });
-  </script>
+            updateActive();
+            window.addEventListener("scroll", updateActive, {passive: true});
+            window.addEventListener("resize", updateActive);
+        });
+    </script>
 
 
 </body>
+
 </html>
